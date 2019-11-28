@@ -120,6 +120,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApiCar.cs" />
+    <Compile Include="Models\ApiCustomer.cs" />
+    <Compile Include="Models\ApiCustomerPhone.cs" />
+    <Compile Include="Models\ApiLocation.cs" />
+    <Compile Include="Models\ApiPhone.cs" />
+    <Compile Include="Models\ApiSale.cs" />
+    <Compile Include="Models\ApiSalesperson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
