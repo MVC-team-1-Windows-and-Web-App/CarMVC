@@ -1,4 +1,4 @@
-﻿using CarApiClasses;
+﻿using CarMVCClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +14,14 @@ namespace CarMVC.Models
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44396/api/Customer/");
+                client.BaseAddress = new Uri("http://localhost:81/api/Customer");
 
                 // Note you must do:
                 // install-package Microsoft.AspNet.WebApi.Client
                 // For the below to work.
 
                 //HTTP GET
-                var responseTask = client.GetAsync("/api/Customer/");
+                var responseTask = client.GetAsync("/api/Customer");
                 responseTask.Wait();
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
@@ -30,7 +30,7 @@ namespace CarMVC.Models
                     readTask.Wait();
                     var customers = readTask.Result;
 
-                    return customers.ToList<ApiCustomer>();
+                    return customers.ToList();
                 }
             }
 
@@ -41,7 +41,7 @@ namespace CarMVC.Models
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44396/api/Customer/");
+                client.BaseAddress = new Uri("http://localhost:81/api/Customer/");
 
                 //HTTP GET
                 var responseTask = client.GetAsync("/api/Customer/" + id);
@@ -65,7 +65,7 @@ namespace CarMVC.Models
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44396/api/Values/");
+                client.BaseAddress = new Uri("https://localhost:81/api/Values/");
 
                 var putTask = client.PutAsJsonAsync<ApiCustomer>("/api/Customer/" + customer.CustomerId, customer);
                 putTask.Wait();

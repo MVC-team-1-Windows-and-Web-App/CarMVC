@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarMVCClasses;
+using CarMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,14 @@ namespace CarMVC.Controllers
 {
     public class CustomerController : Controller
     {
+
+        WebServiceClient client = new WebServiceClient();
         // GET: Customer
-        public ActionResult Index()
-        {
-            return View();
+        public ActionResult Customers() {
+
+            List<ApiCustomer> customers = client.GetCustomers();
+
+            return View(customers);
         }
     }
 }
