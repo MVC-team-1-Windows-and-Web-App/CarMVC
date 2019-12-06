@@ -13,6 +13,6 @@ namespace CarMVCClasses
         public string CustomerLastName { get; set; }
         public int CustomerPhoneId { get; set; }
         public string CustomerAddress { get; set; }
-        public string CustomerDOB { get; set; }
+        public DateTime CustomerDOB { get; set; }
     }
 }
