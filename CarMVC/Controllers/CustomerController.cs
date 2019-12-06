@@ -19,5 +19,28 @@ namespace CarMVC.Controllers
 
             return View(customers);
         }
+
+        public ActionResult Create() {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection form) 
+        {
+            ApiCustomer customer = new ApiCustomer();
+            customer.CustomerFirstName = form["CustomerFirstName"];
+            customer.CustomerLastName = form["CustomerLastName"];
+            customer.CustomerPhoneId = Int32.Parse(form["CustomerPhoneId"]);
+            customer.CustomerAddress = form["CustomerAddress"];
+            customer.CustomerDOB = DateTime.Parse(form["CustomerDOB"]);
+            if (!client.CreateCustomer(customer))
+            {
+                return View(customer);
+            }
+            else {
+                return RedirectToAction("Customers");
+            }
+
+        }
     }
 }

@@ -8,8 +8,7 @@ namespace CarMVCClasses
 {
     class ApiCustomerPhone
     {
-        public int CustomerPhoneId { get; set; }
-        public int CustomerId { get; set; }
+        public int CustomerPhoneId { get; set; }        
         public int PhoneId { get; set; }
         public string CustomerPhoneType { get; set; }
     }
