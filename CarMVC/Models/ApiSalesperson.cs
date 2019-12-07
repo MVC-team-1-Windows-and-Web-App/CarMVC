@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarMVCClasses
 {
-    class ApiSalesperson
+    public class ApiSalesperson
     {
         public int SalespersonId { get; set; }
         public string SalespersonFirstName { get; set; }

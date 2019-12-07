@@ -37,7 +37,7 @@ namespace CarMVC.Controllers
             {
                 return View(customer);
             }
-            else {
+            else { 
                 return RedirectToAction("Customers");
             }
 

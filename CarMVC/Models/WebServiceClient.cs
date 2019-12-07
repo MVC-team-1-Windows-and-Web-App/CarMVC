@@ -16,14 +16,14 @@ namespace CarMVC.Models
         {
 
             //replace local host with 172.30.0.10
-            client.BaseAddress = new Uri("http://localhost:81/api/Customer");
+            client.BaseAddress = new Uri("http://localhost:81/");
 
             // Note you must do:
             // install-package Microsoft.AspNet.WebApi.Client
             // For the below to work.
 
             //HTTP GET
-            var responseTask = client.GetAsync("/api/Customer");
+            var responseTask = client.GetAsync("api/Customer");
             responseTask.Wait();
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
@@ -42,19 +42,19 @@ namespace CarMVC.Models
         public ApiCustomer GetCustomer(int id)
         {
 
-            client.BaseAddress = new Uri("http://localhost:81/api/Customer/");
+            client.BaseAddress = new Uri("http://localhost:81/");
 
             //HTTP GET
-            var responseTask = client.GetAsync("/api/Customer/" + id);
+            var responseTask = client.GetAsync("api/Customer/" + id);
             responseTask.Wait();
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
             {
                 var readTask = result.Content.ReadAsAsync<ApiCustomer>();
                 readTask.Wait();
-                var student = readTask.Result;
+                var customer = readTask.Result;
 
-                return student;
+                return customer;
             }
 
 
@@ -95,9 +95,44 @@ namespace CarMVC.Models
             {
                 return false;
             }
+        }
 
+        public List<ApiSale> GetSales() {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Sale/");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiSale[]>();
+                readTask.Wait();
+                var sales = readTask.Result;
+
+                return sales.ToList();
+            }
+            else
+                return new List<ApiSale>();
+        }
+
+        public bool CreateSale (ApiSale sale)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var postTask = client.PostAsJsonAsync("api/Sale", sale);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
 
         }
+
     }
 }

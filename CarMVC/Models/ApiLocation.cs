@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarMVCClasses
 {
-    class ApiLocation
+    public class ApiLocation
     {
         public int LocationId { get; set; }
         public string LocationStateProv { get; set; }
