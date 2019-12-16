@@ -113,6 +113,28 @@ namespace CarMVC.Models
 
         }
 
+
+        public ApiSale GetSale(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            //HTTP GET
+            var responseTask = client.GetAsync("api/Sale/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiSale>();
+                readTask.Wait();
+                var sale = readTask.Result;
+
+                return sale;
+            }
+
+
+            return null;
+        }
+
         public List<ApiSale> GetSales() {
             client.BaseAddress = new Uri("http://localhost:81/");
 
@@ -146,9 +168,43 @@ namespace CarMVC.Models
             {
                 return false;
             }
-
-
         }
+
+
+        public bool DeleteSale(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Sale/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateSale(ApiSale sale)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var putTask = client.PutAsJsonAsync<ApiSale>("api/Sale/" + sale.CustomerId, sale);
+            putTask.Wait();
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
     }
 }

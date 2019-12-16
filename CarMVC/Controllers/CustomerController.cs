@@ -76,7 +76,7 @@ namespace CarMVC.Controllers
             return View(client.GetCustomer(id));
         }
 
-        [HttpPost]
+        [HttpPost] 
         public ActionResult Edit(ApiCustomer customer)
         {
             if (client.UpdateCustomer(customer))
