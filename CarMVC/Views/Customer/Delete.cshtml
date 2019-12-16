@@ -63,13 +63,6 @@
 
     @using (Html.BeginForm("Delete","Customer",FormMethod.Post)) {
         @Html.AntiForgeryToken()
-
-        Html.HiddenFor(model => model.CustomerId);
-        Html.HiddenFor(model => model.CustomerFirstName);
-        Html.HiddenFor(model => model.CustomerLastName);
-        Html.HiddenFor(model => model.CustomerPhoneId);
-        Html.HiddenFor(model => model.CustomerAddress);
-        Html.HiddenFor(model => model.CustomerDOB);
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Customers")
