@@ -42,5 +42,53 @@ namespace CarMVC.Controllers
             }
 
         }
+
+
+        public ActionResult Delete(int id)
+        {
+            ApiCustomer customer = client.GetCustomer(id);
+
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id,bool? del)
+        {
+            
+            if (client.DeleteCustomer(id))
+            {
+                ViewBag.message = "Customer Nuked";
+            }
+            else
+            {
+                ViewBag.message = "Could Not Nuke Customer";
+            }
+            return RedirectToAction("Customers");
+        }
+
+        public ActionResult Details(int id)
+        {
+            return View(client.GetCustomer(id));
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return View(client.GetCustomer(id));
+        }
+
+        [HttpPost] 
+        public ActionResult Edit(ApiCustomer customer)
+        {
+            if (client.UpdateCustomer(customer))
+            {
+                ViewBag.message = "Customer Changed";
+            }
+            else 
+            {
+                ViewBag.message = "Customer not Changed, error";
+            }
+            return RedirectToAction("Details", new { id = customer.CustomerId });
+        }
     }
+    //hello world
 }
