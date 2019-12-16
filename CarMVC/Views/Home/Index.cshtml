@@ -3,9 +3,47 @@
     ViewBag.Title = "Index";
 }
 
-<h2>This is a test page.</h2>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
 
-<p>Hello World: This is a test!</p>
+<body>
+    <div class="container-fluid">
+        <div class="text-center" style="padding-top:5%; padding-bottom:1%; background-color:#ffe4b8">
+            <h1>Car Sales Dealership</h1>
+            <br><br />
+            <div class="row text-center">
+                <div class="col-sm-2 col-sm-offset-1">
+                    <a href='@Url.Action("Loan", "Index")'>
+                    <img src="~/Content/images/money.png" style="width:100%" />
+                    @Html.ActionLink("Display Sales", "Index", "Loan")
+                </div>
+                <div class="col-sm-2">
+                    <a href='@Url.Action("Loan", "Index")'>
+                    <img src="~/Content/images/salesman.png" style="width:100%" />
+                    @Html.ActionLink("Display Salespersons", "Index", "Grades")
+                </div>
+                <div class="col-sm-2">
+                    <a href='@Url.Action("Loan", "Index")'>
+                    <img src="~/Content/images/storage.png" style="width:100%" />
+                    @Html.ActionLink("Display Inventory", "Index", "Loan")
+                </div>
+                <div class="col-sm-2">
+                    <a href='@Url.Action("Loan", "Index")'>
+                    <img src="~/Content/images/target.png" style="width:100%" />
+                    @Html.ActionLink("Display Customer List", "Customers", "Customer")
+                </div>
+                <div class="col-sm-2">
+                    <a href='@Url.Action("Loan", "Index")'> 
+                    <img src="~/Content/images/map.png" style="width:100%" />
+                    @Html.ActionLink("Display Locations", "Index", "Loan")
+                </div>
+            </div>
+            <br />
+            <div class="row" style="padding-top:3%; padding-bottom:3%">
+                DASHBOARD STATISTICS HERE
+            </div>
+        </div>
+    </div>
 
-@Html.ActionLink("View Customers","Customers","Customer")
-
+</body>
