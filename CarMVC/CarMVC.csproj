@@ -133,6 +133,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\SalespersonController.cs" />
     <Compile Include="Models\WebServiceClient.cs" />
