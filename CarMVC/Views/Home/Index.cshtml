@@ -15,29 +15,29 @@
             <br><br />
             <div class="row text-center">
                 <div class="col-sm-2 col-sm-offset-1">
-                    <a href='@Url.Action("Loan", "Index")'>
+                    <a href='@Url.Action("Sales", "Sale")'>
                     <img src="~/Content/images/money.png" style="width:100%" />
-                    @Html.ActionLink("Display Sales", "Index", "Loan")
+                    @Html.ActionLink("Display Sales", "Sales", "Sale")
                 </div>
                 <div class="col-sm-2">
-                    <a href='@Url.Action("Loan", "Index")'>
+                    <a href='@Url.Action("Salesspersons", "Salesperson")'>
                     <img src="~/Content/images/salesman.png" style="width:100%" />
-                    @Html.ActionLink("Display Salespersons", "Index", "Grades")
+                    @Html.ActionLink("Display Salespersons", "Salespersons", "Salesperson")
                 </div>
                 <div class="col-sm-2">
-                    <a href='@Url.Action("Loan", "Index")'>
+                    <a href='@Url.Action("Inventory", "Inventory")'>
                     <img src="~/Content/images/storage.png" style="width:100%" />
-                    @Html.ActionLink("Display Inventory", "Index", "Loan")
+                    @Html.ActionLink("Display Inventory", "Inventory", "Inventory")
                 </div>
                 <div class="col-sm-2">
-                    <a href='@Url.Action("Loan", "Index")'>
+                    <a href='@Url.Action("Customers", "Customer")'>
                     <img src="~/Content/images/target.png" style="width:100%" />
                     @Html.ActionLink("Display Customer List", "Customers", "Customer")
                 </div>
                 <div class="col-sm-2">
-                    <a href='@Url.Action("Loan", "Index")'> 
+                    <a href='@Url.Action("Locations", "Location")'> 
                     <img src="~/Content/images/map.png" style="width:100%" />
-                    @Html.ActionLink("Display Locations", "Index", "Loan")
+                    @Html.ActionLink("Display Locations", "Locations", "Location")
                 </div>
             </div>
             <br />
@@ -46,9 +46,5 @@
             </div>
         </div>
     </div>
-
-@Html.ActionLink("View Customers","Customers","Customer")<br />
-@Html.ActionLink("View Sales","Sales","Sale")
-
 
 </body>
