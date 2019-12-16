@@ -16,7 +16,7 @@ namespace CarMVC.Models
         {
 
             //replace local host with 172.30.0.10
-            client.BaseAddress = new Uri("http://localhost:81/");
+            client.BaseAddress = new Uri("http://172.30.0.10/");
 
             // Note you must do:
             // install-package Microsoft.AspNet.WebApi.Client
@@ -212,6 +212,27 @@ namespace CarMVC.Models
             {
                 return false;
             }
+        }
+
+        //Salesperson 
+        public ApiSalesperson GetSalesperson(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Salesperson/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiSalesperson>();
+                readTask.Wait();
+                var salesperson = readTask.Result;
+
+                return salesperson;
+            }
+
+
+            return null;
         }
 
         public List<ApiLocation> GetLocations()
