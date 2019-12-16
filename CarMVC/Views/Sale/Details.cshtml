@@ -3,72 +3,73 @@
 @{
     ViewBag.Title = "Details";
 }
+    <body style="background-color:antiquewhite;">
+        <h2>Details</h2>
+        @ViewBag.message
+        <div>
+            <h4>ApiSale</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.SaleId)
+                </dt>
 
-<h2>Details</h2>
-@ViewBag.message
-<div>
-    <h4>ApiSale</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SaleId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SaleId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SaleId)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CustomerId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CustomerId)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CarId)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CarId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CarId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CarId)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalesPersonId)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalesPersonId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalesPersonId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalesPersonId)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SaleDate)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SaleDate)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SaleDate)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SaleDate)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SaleTotal)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SaleTotal)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SaleTotal)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SaleTotal)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SaleQuantity)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SaleQuantity)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SaleQuantity)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SaleQuantity)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.SaleId  }) |
-    @Html.ActionLink("Back to List", "Sales")
-</p>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.SaleId }) |
+            @Html.ActionLink("Back to List", "Sales")
+        </p>
+    </body>

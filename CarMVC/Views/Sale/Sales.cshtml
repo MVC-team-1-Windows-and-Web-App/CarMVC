@@ -3,67 +3,105 @@
 @{
     ViewBag.Title = "Sales";
 }
+    <body style="background-color:antiquewhite;">
+        <h2>Sales</h2>
 
-<h2>Sales</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SaleId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalesPersonId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SaleDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SaleTotal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SaleQuantity)
-        </th>
-        <th></th>
-    </tr>
+        @*
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalesPersonId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleQuantity)
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SaleId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalesPersonId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SaleDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SaleTotal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SaleQuantity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SaleId  }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SaleId  }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SaleId  })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalesPersonId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleQuantity)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SaleId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.SaleId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SaleId })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+        *@
+
+        @foreach (var item in Model)
+        {
+            <div class="card border- mb-3" style="max-width: 40rem; border-style: solid; border-width: 3px;background-image: linear-gradient(-50deg,#9c8c72,#b3a898,#ccc1ad,#d4cec5);">
+
+                <div style=" margin:10px" class="card-header">@Html.DisplayFor(modelItem => item.SaleId)</div> <!--ID-->
+
+                <div style=" margin:10px" class="card-body">
+
+                    <p class="card-text">Customer ID: @Html.DisplayFor(modelItem => item.CustomerId)</p>
+                    <p class="card-text">Car ID: @Html.DisplayFor(modelItem => item.CarId)</p>
+                    <p class="card-text">Salesperson ID: @Html.DisplayFor(modelItem => item.SalesPersonId)</p>
+
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.SaleDate)</p>
+
+                    <p class="card-text">Quantity: @Html.DisplayFor(modelItem => item.SaleQuantity)</p>
+
+                    <p class="card-text">Total: @Html.DisplayFor(modelItem => item.SaleTotal)</p>
+
+                    <p class="card-text">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SaleId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.SaleId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SaleId })
+                    </p>
+
+
+                </div>
+
+            </div>
+            <br />
+        }
+
+
+    </body>
