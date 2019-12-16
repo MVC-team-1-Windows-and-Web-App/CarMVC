@@ -82,9 +82,9 @@ namespace CarMVC.Models
 
         public bool UpdateCustomer(ApiCustomer customer)
         {
-            client.BaseAddress = new Uri("http://172.30.0.10:81/api/Values/");
+            client.BaseAddress = new Uri("http://localhost:81/");
 
-            var putTask = client.PutAsJsonAsync<ApiCustomer>("/api/Customer/" + customer.CustomerId, customer);
+            var putTask = client.PutAsJsonAsync<ApiCustomer>("api/Customer/" + customer.CustomerId, customer);
             putTask.Wait();
             var result = putTask.Result;
             if (result.IsSuccessStatusCode)
@@ -95,6 +95,22 @@ namespace CarMVC.Models
             {
                 return false;
             }
+        }
+
+        public bool DeleteCustomer(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Customer/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
         }
 
         public List<ApiSale> GetSales() {

@@ -33,7 +33,7 @@ namespace CarMVC.Controllers
                 CarId = Int32.Parse(form["CarId"]),
                 SalesPersonId = Int32.Parse(form["SalesPersonId"]),
                 SaleDate = DateTime.Parse(form["SaleDate"]),
-                SaleQuantity = Int32.Parse(form["CustomerId"]),
+                SaleQuantity = Int32.Parse(form["SaleQuantity"]),
                 SaleTotal = Decimal.Parse(form["SaleTotal"]),
             };
             
