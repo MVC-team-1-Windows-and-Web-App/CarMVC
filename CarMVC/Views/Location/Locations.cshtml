@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CarMVCClasses.ApiLocation>
+
+@{
+    ViewBag.Title = "Locations";
+}
+
+<h2>Locations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationStateProv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationStateProv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LocationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LocationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LocationId })
+        </td>
+    </tr>
+}
+
+</table>
