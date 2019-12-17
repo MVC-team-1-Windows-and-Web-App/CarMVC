@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CarMVCClasses.ApiCar>
+
+@{
+    ViewBag.Title = "Cars";
+}
+
+<h2>Cars</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarCommission)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarCommission)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.CarId  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.CarId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.CarId })
+        </td>
+    </tr>
+}
+
+</table>

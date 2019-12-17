@@ -114,6 +114,14 @@ namespace CarMVC.Models
         }
 
 
+
+        /// <summary>
+        ///Sales 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+
         public ApiSale GetSale(int id)
         {
             client.BaseAddress = new Uri("http://localhost:81/");
@@ -187,6 +195,7 @@ namespace CarMVC.Models
                 return false;
             }
         }
+   
 
         public bool UpdateSale(ApiSale sale)
         {
@@ -298,6 +307,105 @@ namespace CarMVC.Models
 
         }
 
+
+        /// <summary>
+        ///         Cars need to be tested 
+        /// </summary>
+        /// <param name="sale"></param>
+        /// <returns></returns>
+
+
+
+        public ApiCar GetCar(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            //HTTP GET
+            var responseTask = client.GetAsync("api/Car/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiCar>();
+                readTask.Wait();
+                var car = readTask.Result;
+
+                return car;
+            }
+
+
+            return null;
+        }
+
+        public List<ApiCar> GetCars()
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Car/");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiCar[]>();
+                readTask.Wait();
+                var cars = readTask.Result;
+
+                return cars.ToList();
+            }
+            else
+                return new List<ApiCar>();
+        }
+
+        public bool CreateCar(ApiCar car)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var postTask = client.PostAsJsonAsync("api/Car", car);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteCar(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Car/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateCar(ApiCar car)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var putTask = client.PutAsJsonAsync<ApiCar>("api/Sale/" + car.CarId, car);
+            putTask.Wait();
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
