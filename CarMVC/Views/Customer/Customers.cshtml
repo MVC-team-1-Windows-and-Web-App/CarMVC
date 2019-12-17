@@ -9,61 +9,7 @@
         <p style="border-style: solid; border-width: 1px; max-width: 10rem;">
              @Html.ActionLink("Create New", "Create", "Customer")  
         </p>
-        @*
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerFirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerLastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerPhoneId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerAddress)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerDOB)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerFirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerLastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerPhoneId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerDOB)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
-                    </td>
-                </tr>
-            }
-
-        </table>
-        *@
+                
         @foreach (var item in Model)
         {
             <div class="card border- mb-3" style="max-width: 40rem; border-style: solid; border-width: 3px;background-image: linear-gradient(-50deg,#9c8c72,#b3a898,#ccc1ad,#d4cec5);">

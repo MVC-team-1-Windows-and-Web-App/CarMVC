@@ -394,7 +394,7 @@ namespace CarMVC.Models
         {
             client.BaseAddress = new Uri("http://localhost:81/");
 
-            var putTask = client.PutAsJsonAsync<ApiCar>("api/Sale/" + car.CarId, car);
+            var putTask = client.PutAsJsonAsync<ApiCar>("api/Car/" + car.CarId, car);
             putTask.Wait();
             var result = putTask.Result;
             if (result.IsSuccessStatusCode)
