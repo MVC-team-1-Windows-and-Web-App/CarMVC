@@ -12,8 +12,8 @@ namespace CarMVCClasses
         public string CarColor { get; set; }
         public string CarType { get; set; }
         public string CarModel { get; set; }
-        public double CarPrice { get; set; }
-        public double CarCommission { get; set; }
+        public decimal CarPrice { get; set; }
+        public decimal CarCommission { get; set; }
 
     }
 }

@@ -35,8 +35,7 @@ namespace CarMVC.Controllers
                 SaleDate = DateTime.Parse(form["SaleDate"]),
                 SaleQuantity = Int32.Parse(form["SaleQuantity"]),
                 SaleTotal = Decimal.Parse(form["SaleTotal"]),
-            };
-            
+            };            
 
             if (client.CreateSale(sale))
             {

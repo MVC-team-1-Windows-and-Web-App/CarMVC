@@ -39,16 +39,13 @@ namespace CarMVC.Controllers
         public ActionResult Create(FormCollection form)
         {
             ApiCar car = new ApiCar() {
-
-                CarId = Int32.Parse(form["CarId"]),
+               
                 CarColor = form["CarColor"].ToString(),
                 CarType = form["CarType"].ToString(),
                 CarModel = form["CarModel"].ToString(),
-                CarPrice = Convert.ToDouble(form["CarPrice"]),
-                CarCommission = Convert.ToDouble(form["CarCommission"]),
+                CarPrice = Decimal.Parse(form["CarPrice"]),
+                CarCommission = Decimal.Parse(form["CarCommission"]),
             };
-
-
 
             if (client.CreateCar(car))
             {
