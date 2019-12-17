@@ -31,17 +31,16 @@ namespace CarMVC.Controllers
             ApiLocation location = new ApiLocation();
             location.LocationAddress = form["LocationAddress"];
             location.LocationStateProv = form["LocationStateProv"];
-            if (!client.CreateLocation(location))
+            if (client.CreateLocation(location))
             {
-                return View(location);
+                return RedirectToAction("Locations");
             }
             else
             {
-                return RedirectToAction("Customers");
+                return View(location);                
             }
 
         }
-
 
         public ActionResult Delete(int id)
         {
@@ -54,7 +53,7 @@ namespace CarMVC.Controllers
         public ActionResult Delete(int id, bool? del)
         {
 
-            if (client.DeleteCustomer(id))
+            if (client.DeleteLocation(id))
             {
                 ViewBag.message = "Location ANNIHALATED";
             }
@@ -62,7 +61,7 @@ namespace CarMVC.Controllers
             {
                 ViewBag.message = "Could Not ANNIHALATE location";
             }
-            return RedirectToAction("Customers");
+            return RedirectToAction("Locations");
         }
 
         public ActionResult Details(int id)
