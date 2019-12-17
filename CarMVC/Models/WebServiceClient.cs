@@ -263,7 +263,56 @@ namespace CarMVC.Models
                 return new List<ApiCar>();
         }
 
+        public bool CreateCar(ApiCar car)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
 
+            var postTask = client.PostAsJsonAsync("api/Car", car);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteCar(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Car/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateCar(ApiCar car)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var putTask = client.PutAsJsonAsync<ApiCar>("api/Sale/" + car.CarId, car);
+            putTask.Wait();
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
