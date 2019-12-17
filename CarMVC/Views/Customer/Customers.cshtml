@@ -7,8 +7,7 @@
         <h2>Customers</h2>
 
         <p style="border-style: solid; border-width: 1px; max-width: 10rem;">
-            @Html.ActionLink("Create New", "Create", "Customer")
-            
+             @Html.ActionLink("Create New", "Create", "Customer")  
         </p>
                 
         @foreach (var item in Model)
@@ -19,8 +18,9 @@
 
                 <div style=" margin:10px" class="card-body">
 
-                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.CustomerFirstName) @Html.DisplayFor(modelItem => item.CustomerLastName) @Html.DisplayFor(modelItem => item.CustomerPhoneId)</h5> <!--First and Last Name-->
+                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.CustomerFirstName) @Html.DisplayFor(modelItem => item.CustomerLastName) </h5> <!--First and Last Name-->
 
+                    <p class="card-text">Phone Number Id: @Html.DisplayFor(modelItem => item.CustomerPhoneId)</p>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.CustomerAddress)</p>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.CustomerDOB)</p>
                     <p class="card-text">

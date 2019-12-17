@@ -128,8 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Models\WebServiceClient.cs" />
     <Compile Include="Global.asax.cs">
@@ -164,6 +166,16 @@
     <Content Include="Views\Sale\Delete.cshtml" />
     <Content Include="Views\Sale\Details.cshtml" />
     <Content Include="Views\Sale\Edit.cshtml" />
+    <Content Include="Views\Location\Locations.cshtml" />
+    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Views\Location\Delete.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Location\Details.cshtml" />
+    <Content Include="Views\Car\Cars.cshtml" />
+    <Content Include="Views\Car\Create.cshtml" />
+    <Content Include="Views\Car\Edit.cshtml" />
+    <Content Include="Views\Car\Delete.cshtml" />
+    <Content Include="Views\Car\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
