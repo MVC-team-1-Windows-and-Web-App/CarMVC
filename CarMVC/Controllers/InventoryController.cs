@@ -31,8 +31,8 @@ namespace CarMVC.Controllers
             car.CarColor = form["CarColor"];
             car.CarType = form["CarType"];
             car.CarModel = form["CarModel"];
-            car.CarPrice = Double.Parse(form["CarPrice"]);
-            car.CarCommission = Double.Parse(form["CarCommission"]);
+            car.CarPrice = Convert.ToDecimal(form["CarPrice"]);
+            car.CarCommission = Convert.ToDecimal(form["CarCommission"]);
             if (!client.CreateCar(car))
             {
                 return View(car);

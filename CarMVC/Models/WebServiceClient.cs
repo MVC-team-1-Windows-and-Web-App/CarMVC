@@ -66,7 +66,7 @@ namespace CarMVC.Models
         {
             client.BaseAddress = new Uri("http://localhost:81/");
 
-            var postTask = client.PostAsJsonAsync("api/Customer",customer);
+            var postTask = client.PostAsJsonAsync("api/Customer", customer);
             postTask.Wait();
             var result = postTask.Result;
             if (result.IsSuccessStatusCode)
@@ -76,7 +76,7 @@ namespace CarMVC.Models
             else {
                 return false;
             }
-            
+
 
         }
 
@@ -161,7 +161,7 @@ namespace CarMVC.Models
                 return new List<ApiSale>();
         }
 
-        public bool CreateSale (ApiSale sale)
+        public bool CreateSale(ApiSale sale)
         {
             client.BaseAddress = new Uri("http://localhost:81/");
 
@@ -195,7 +195,7 @@ namespace CarMVC.Models
                 return false;
             }
         }
-   
+
 
         public bool UpdateSale(ApiSale sale)
         {
@@ -214,170 +214,6 @@ namespace CarMVC.Models
             }
         }
 
-        //Salesperson 
-        public ApiSalesperson GetSalesperson(int id)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var responseTask = client.GetAsync("api/Salesperson/" + id);
-
-        public List<ApiLocation> GetLocations()
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var responseTask = client.GetAsync("api/Location");
-
-            responseTask.Wait();
-            var result = responseTask.Result;
-            if (result.IsSuccessStatusCode)
-            {
-
-                var readTask = result.Content.ReadAsAsync<ApiSalesperson>();
-                readTask.Wait();
-                var salesperson = readTask.Result;
-
-                return salesperson;
-            }
-
-
-            return null;
-        }
-
-        public List<ApiSalesperson> GetSalespersons()
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var responseTask = client.GetAsync("api/Salesperson/");
-
-                var readTask = result.Content.ReadAsAsync<ApiLocation[]>();
-                readTask.Wait();
-                var locations = readTask.Result;
-
-                return locations.ToList();
-            }
-            return null;
-        }
-
-        public ApiLocation GetLocation(int id)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var responseTask = client.GetAsync("api/Location/" + id);
-
-            responseTask.Wait();
-            var result = responseTask.Result;
-            if (result.IsSuccessStatusCode)
-            {
-
-                var readTask = result.Content.ReadAsAsync<ApiSalesperson[]>();
-                readTask.Wait();
-                var salesperson = readTask.Result;
-
-                return salesperson.ToList();
-            }
-            else
-                return new List<ApiSalesperson>();
-        }
-
-        public bool CreateSalesperson(ApiSalesperson salesperson)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var postTask = client.PostAsJsonAsync("api/Salesperson", salesperson);
-
-                var readTask = result.Content.ReadAsAsync<ApiLocation>();
-                readTask.Wait();
-                var location = readTask.Result;
-
-                return location;
-            }
-
-
-            return null;
-
-        }
-
-        public bool CreateLocation(ApiLocation location)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var postTask = client.PostAsJsonAsync("api/Location", location);
-
-            postTask.Wait();
-            var result = postTask.Result;
-            if (result.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-
-
-        public bool DeleteSalesperson(int id)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var deleteTask = client.DeleteAsync("api/Salesperson/" + id);
-            deleteTask.Wait();
-            var result = deleteTask.Result;
-
-
-
-        }
-
-        public bool UpdateLocation(ApiLocation location)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var putTask = client.PutAsJsonAsync<ApiLocation>("api/Location/" + location.LocationId, location);
-            putTask.Wait();
-            var result = putTask.Result;
-
-            if (result.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public bool UpdateSalesperson(ApiSalesperson salesperson)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var putTask = client.PutAsJsonAsync<ApiSalesperson>("api/Salesperson/" + salesperson.SalespersonId, salesperson);
-            putTask.Wait();
-            var result = putTask.Result;
-
-        public bool DeleteLocation(int id)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var deleteTask = client.DeleteAsync("api/Location/" + id);
-            deleteTask.Wait();
-            var result = deleteTask.Result;
-
-            if (result.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-
-        //Inventory (Car)
-
-
-        }
 
 
         /// <summary>
@@ -487,5 +323,499 @@ namespace CarMVC.Models
             }
         }
 
+
+        /// <summary>
+        /// /               Phone  
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// 
+
+        public ApiPhone GetPhone(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            //HTTP GET
+            var responseTask = client.GetAsync("api/Phone/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiPhone>();
+                readTask.Wait();
+                var phone = readTask.Result;
+
+                return phone;
+            }
+
+
+            return null;
+        }
+
+        public List<ApiPhone> GetPhones()
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Phone/");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiPhone[]>();
+                readTask.Wait();
+
+                var phone = readTask.Result;
+
+                return phone.ToList();
+
+
+            }
+            else
+                return new List<ApiPhone>();
+        }
+
+
+        public bool CreatePhone(ApiPhone phone)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var postTask = client.PostAsJsonAsync("api/Phone", phone);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DeletePhone(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Phone/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdatePhone(ApiPhone phone)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var putTask = client.PutAsJsonAsync<ApiPhone>("api/Phone/" + phone.PhoneId, phone);
+            putTask.Wait();
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// /           SalePerson
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+
+        public ApiSalesperson GetSalesperson(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            //HTTP GET
+            var responseTask = client.GetAsync("api/Salesperson/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiSalesperson>();
+                readTask.Wait();
+                var salesperson = readTask.Result;
+
+                return salesperson;
+            }
+
+
+            return null;
+        }
+
+
+        public List<ApiSalesperson> GetSalespersons()
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Salesperson/");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiSalesperson[]>();
+                readTask.Wait();
+
+                var salespersons = readTask.Result;
+
+                return salespersons.ToList();
+
+
+            }
+            else
+                return new List<ApiSalesperson>();
+        }
+
+
+        public bool CreateSalesperson(ApiSalesperson salesperson)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var postTask = client.PostAsJsonAsync("api/Salesperson", salesperson);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public bool DeleteSalesperson(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Salesperson/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateSalesperson(ApiSalesperson salesperson)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var putTask = client.PutAsJsonAsync<ApiSalesperson>("api/Salesperson/" + salesperson.SalespersonId, salesperson);
+            putTask.Wait();
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+        /// <summary>
+        /// /           Location
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+
+        public ApiLocation GetLocation(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            //HTTP GET
+            var responseTask = client.GetAsync("api/Location/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiLocation>();
+                readTask.Wait();
+                var location = readTask.Result;
+
+                return location;
+            }
+
+
+            return null;
+        }
+
+        public List<ApiLocation> GetLocations()
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Location/");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiLocation[]>();
+                readTask.Wait();
+
+                var locations = readTask.Result;
+
+                return  locations.ToList();
+
+
+                
+            }
+            else
+                return new List<ApiLocation>();
+        }
+
+
+        public bool CreateLocation(ApiLocation location)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var postTask = client.PostAsJsonAsync("api/Location", location);
+            postTask.Wait();
+            var result = postTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteLocation(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Location/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateLocation(ApiLocation location)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var putTask = client.PutAsJsonAsync<ApiLocation>("api/Location/" + location.LocationId, location);
+            putTask.Wait();
+            var result = putTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
+
+
+
+
+
 }
+
+
+        /*
+
+        
+        //Salesperson 
+        public ApiSalesperson GetSalesperson(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Salesperson/" + id);
+
+            public List<ApiLocation> GetLocations()
+            {
+                client.BaseAddress = new Uri("http://localhost:81/");
+
+                var responseTask = client.GetAsync("api/Location");
+
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<ApiSalesperson>();
+                    readTask.Wait();
+                    var salesperson = readTask.Result;
+
+                    return salesperson;
+                }
+
+
+                return null;
+            }
+
+            public List<ApiSalesperson> GetSalespersons()
+            {
+                client.BaseAddress = new Uri("http://localhost:81/");
+
+                var responseTask = client.GetAsync("api/Salesperson/");
+
+                var readTask = result.Content.ReadAsAsync<ApiLocation[]>();
+                readTask.Wait();
+                var locations = readTask.Result;
+
+                return locations.ToList();
+            }
+            return null;
+        }
+
+        //           return null;
+
+        //}
+
+        /// <summary>
+        /// /           Location
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        public ApiLocation GetLocation(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Location/" + id);
+
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+
+                var readTask = result.Content.ReadAsAsync<ApiSalesperson[]>();
+                readTask.Wait();
+                var salesperson = readTask.Result;
+
+                return salesperson.ToList();
+            }
+            else
+                return new List<ApiSalesperson>();
+        }
+
+        public bool CreateSalesperson(ApiSalesperson salesperson)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var postTask = client.PostAsJsonAsync("api/Salesperson", salesperson);
+
+            var readTask = result.Content.ReadAsAsync<ApiLocation>();
+            readTask.Wait();
+            var location = readTask.Result;
+
+            return location;
+        }
+
+
+ 
+
+    public bool CreateLocation(ApiLocation location)
+    {
+        client.BaseAddress = new Uri("http://localhost:81/");
+
+        var postTask = client.PostAsJsonAsync("api/Location", location);
+
+        postTask.Wait();
+        var result = postTask.Result;
+        if (result.IsSuccessStatusCode)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+
+    public bool DeleteSalesperson(int id)
+    {
+        client.BaseAddress = new Uri("http://localhost:81/");
+
+        var deleteTask = client.DeleteAsync("api/Salesperson/" + id);
+        deleteTask.Wait();
+        var result = deleteTask.Result;
+
+
+
+    }
+
+    public bool UpdateLocation(ApiLocation location)
+    {
+        client.BaseAddress = new Uri("http://localhost:81/");
+
+        var putTask = client.PutAsJsonAsync<ApiLocation>("api/Location/" + location.LocationId, location);
+        putTask.Wait();
+        var result = putTask.Result;
+
+        if (result.IsSuccessStatusCode)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool UpdateSalesperson(ApiSalesperson salesperson)
+    {
+        client.BaseAddress = new Uri("http://localhost:81/");
+
+        var putTask = client.PutAsJsonAsync<ApiSalesperson>("api/Salesperson/" + salesperson.SalespersonId, salesperson);
+        putTask.Wait();
+        var result = putTask.Result;
+
+        public bool DeleteLocation(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var deleteTask = client.DeleteAsync("api/Location/" + id);
+            deleteTask.Wait();
+            var result = deleteTask.Result;
+
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        //Inventory (Car)
+
+    */
