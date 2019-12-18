@@ -132,8 +132,6 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
-    <Compile Include="Controllers\InventoryController.cs" />
-    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\SalespersonController.cs" />
     <Compile Include="Models\WebServiceClient.cs" />
@@ -179,6 +177,11 @@
     <Content Include="Views\Car\Edit.cshtml" />
     <Content Include="Views\Car\Delete.cshtml" />
     <Content Include="Views\Car\Details.cshtml" />
+    <Content Include="Views\Salesperson\Salespersons.cshtml" />
+    <Content Include="Views\Salesperson\Create.cshtml" />
+    <Content Include="Views\Salesperson\Delete.cshtml" />
+    <Content Include="Views\Salesperson\Details.cshtml" />
+    <Content Include="Views\Salesperson\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,8 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Inventory\" />
-    <Folder Include="Views\Salesperson\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

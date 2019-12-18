@@ -33,14 +33,15 @@ namespace CarMVC.Controllers
             salesperson.SalespersonAddress = form["SalespersonAddress"];
             salesperson.SalespersonPhoneNumber = form["SalespersonPhoneNumber"];
             salesperson.LocationId = Int32.Parse(form["Locationid"]);
-            if (!client.CreateSalesperson(salesperson))
-            {
-                return View(salesperson);
-            }
-            else
-            {
-                return RedirectToAction("Salesperson");
-            }
+            if (client.GetLocation(salesperson.LocationId) != null)
+                if (client.CreateSalesperson(salesperson))
+                {
+                    return RedirectToAction("Salespersons");
+                }
+
+            return View(salesperson);
+            
+            
 
         }
 
@@ -63,7 +64,7 @@ namespace CarMVC.Controllers
             {
                 ViewBag.message = "Salesperson not bye";
             }
-            return RedirectToAction("Salesperson");
+            return RedirectToAction("Salespersons");
         }
 
         public ActionResult Details(int id)
@@ -87,7 +88,7 @@ namespace CarMVC.Controllers
             {
                 ViewBag.message = "Salesperson not Changed ??";
             }
-            return RedirectToAction("Details", new { id = salesperson.SalespersonId });
+            return RedirectToAction("Salespersons");
         }
     }
 }

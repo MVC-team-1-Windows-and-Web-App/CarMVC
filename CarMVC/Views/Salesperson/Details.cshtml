@@ -1,0 +1,66 @@
+﻿@model CarMVCClasses.ApiSalesperson
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ApiSalesperson</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalespersonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalespersonId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalespersonFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalespersonFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalespersonLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalespersonLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalespersonAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalespersonAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalespersonPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalespersonPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SalespersonId }) |
+    @Html.ActionLink("Back to List", "Salespersons")
+</p>
