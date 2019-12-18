@@ -3,43 +3,69 @@
 @{
     ViewBag.Title = "Locations";
 }
+    <body style="background-color:antiquewhite;">
+        <h2>Locations</h2>
 
-<h2>Locations</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationStateProv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationAddress)
+                </th>
+                <th></th>
+            </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationStateProv)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationAddress)
-        </th>
-        <th></th>
-    </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationStateProv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocationAddress)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
+                    </td>
+                </tr>
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationStateProv)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationAddress)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LocationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LocationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LocationId })
-        </td>
-    </tr>
-}
+        </table>
+        @foreach (var item in Model)
+        {
+            <div class="card border- mb-3" style="max-width: 40rem; border-style: solid; border-width: 3px;background-image: linear-gradient(-50deg,#9c8c72,#b3a898,#ccc1ad,#d4cec5);">
 
-</table>
+                <div style=" margin:10px" class="card-header">@Html.DisplayFor(modelItem => item.LocationId)</div> <!--ID-->
+
+                <div style=" margin:10px" class="card-body">
+
+                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.LocationStateProv) </h5>
+
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.LocationAddress)</p>
+                
+                    <p class="card-text">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
+                    </p>
+
+
+                </div>
+
+            </div>
+            <br />
+        }
+    </body>
