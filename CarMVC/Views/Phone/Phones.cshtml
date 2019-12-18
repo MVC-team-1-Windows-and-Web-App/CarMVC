@@ -3,37 +3,34 @@
 @{
     ViewBag.Title = "Phones";
 }
+    <body style="background-color:antiquewhite;">
+        <h2>Phones</h2>
 
-<h2>Phones</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        
+        @foreach (var item in Model)
+        {
+            <div class="card border- mb-3" style="max-width: 40rem; border-style: solid; border-width: 3px;background-image: linear-gradient(-50deg,#9c8c72,#b3a898,#ccc1ad,#d4cec5);">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th></th>
-    </tr>
+                <div style=" margin:10px" class="card-header">@Html.DisplayFor(modelItem => item.PhoneId)</div> <!--ID-->
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.PhoneId  }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.PhoneId  }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.PhoneId  })
-        </td>
-    </tr>
-}
+                <div style=" margin:10px" class="card-body">
 
-</table>
+                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.PhoneNumber) </h5> 
+
+                 
+                    <p class="card-text">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PhoneId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PhoneId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PhoneId })
+                    </p>
+
+
+                </div>
+
+            </div>
+            <br />
+        }
+    </body>
