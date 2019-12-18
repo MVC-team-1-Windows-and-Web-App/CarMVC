@@ -39,7 +39,7 @@ namespace CarMVC.Controllers
             }
             else
             {
-                return RedirectToAction("Salesperson");
+                return RedirectToAction("Salespersons");
             }
 
         }
@@ -63,7 +63,7 @@ namespace CarMVC.Controllers
             {
                 ViewBag.message = "Salesperson not bye";
             }
-            return RedirectToAction("Salesperson");
+            return RedirectToAction("Salespersons");
         }
 
         public ActionResult Details(int id)
@@ -87,7 +87,7 @@ namespace CarMVC.Controllers
             {
                 ViewBag.message = "Salesperson not Changed ??";
             }
-            return RedirectToAction("Details", new { id = salesperson.SalespersonId });
+            return RedirectToAction("Salespersons");
         }
     }
 }
