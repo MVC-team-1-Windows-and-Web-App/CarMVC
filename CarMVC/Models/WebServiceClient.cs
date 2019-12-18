@@ -214,27 +214,6 @@ namespace CarMVC.Models
             }
         }
 
-        //Salesperson 
-        public ApiSalesperson GetSalesperson(int id)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var responseTask = client.GetAsync("api/Salesperson/" + id);
-            responseTask.Wait();
-            var result = responseTask.Result;
-            if (result.IsSuccessStatusCode)
-            {
-                var readTask = result.Content.ReadAsAsync<ApiSalesperson>();
-                readTask.Wait();
-                var salesperson = readTask.Result;
-
-                return salesperson;
-            }
-
-
-            return null;
-        }
-
         public List<ApiLocation> GetLocations()
         {
             client.BaseAddress = new Uri("http://localhost:81/");
@@ -308,27 +287,6 @@ namespace CarMVC.Models
             {
                 return false;
             }
-        }
-
-        //Salesperson 
-        public ApiSalesperson GetSalesperson(int id)
-        {
-            client.BaseAddress = new Uri("http://localhost:81/");
-
-            var responseTask = client.GetAsync("api/Salesperson/" + id);
-            responseTask.Wait();
-            var result = responseTask.Result;
-            if (result.IsSuccessStatusCode)
-            {
-                var readTask = result.Content.ReadAsAsync<ApiSalesperson>();
-                readTask.Wait();
-                var salesperson = readTask.Result;
-
-                return salesperson;
-            }
-
-
-            return null;
         }
 
         public bool DeleteLocation(int id)
@@ -430,6 +388,26 @@ namespace CarMVC.Models
             {
                 return false;
             }
+        }
+
+        public ApiSalesperson GetSalesperson(int id)
+        {
+            client.BaseAddress = new Uri("http://localhost:81/");
+
+            var responseTask = client.GetAsync("api/Salesperson/" + id);
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<ApiSalesperson>();
+                readTask.Wait();
+                var salesperson = readTask.Result;
+
+                return salesperson;
+            }
+
+
+            return null;
         }
 
         public List<ApiSalesperson> GetSalespersons()
