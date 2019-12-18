@@ -3,64 +3,65 @@
 @{
     ViewBag.Title = "Details";
 }
+    <body style="background-color:antiquewhite;">
+        <h2>Details</h2>
 
-<h2>Details</h2>
+        <div>
+            <h4>ApiSalesperson</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonId)
+                </dt>
 
-<div>
-    <h4>ApiSalesperson</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonId)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonFirstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonFirstName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonFirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonFirstName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonLastName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonLastName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonLastName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonLastName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonAddress)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonAddress)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonAddress)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonAddress)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonPhoneNumber)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonPhoneNumber)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonPhoneNumber)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonPhoneNumber)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LocationId)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LocationId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LocationId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LocationId)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.LocationId }) |
-    @Html.ActionLink("Back to List", "Salespersons")
-</p>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.LocationId }) |
+            @Html.ActionLink("Back to List", "Salespersons")
+        </p>
+    </body>

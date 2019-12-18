@@ -3,70 +3,72 @@
 @{
     ViewBag.Title = "Delete";
 }
+    <body style="background-color:antiquewhite;">
+        <h2>Delete</h2>
 
-<h2>Delete</h2>
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>ApiSalesperson</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonId)
+                </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ApiSalesperson</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonId)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonFirstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonFirstName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonFirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonFirstName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonLastName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonLastName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonLastName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonLastName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonAddress)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonAddress)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonAddress)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonAddress)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalespersonPhoneNumber)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalespersonPhoneNumber)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalespersonPhoneNumber)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalespersonPhoneNumber)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LocationId)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LocationId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LocationId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LocationId)
-        </dd>
+            </dl>
 
-    </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Salesperson")
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Salesperson")
+                </div>
+            }
         </div>
-    }
-</div>
+    </body>
