@@ -16,7 +16,7 @@ namespace CarMVC.Models
         {
 
             //replace local host with 172.30.0.10
-            client.BaseAddress = new Uri("http://172.30.0.10/");
+            client.BaseAddress = new Uri("http://localhost:81");
 
             // Note you must do:
             // install-package Microsoft.AspNet.WebApi.Client
@@ -201,7 +201,7 @@ namespace CarMVC.Models
         {
             client.BaseAddress = new Uri("http://localhost:81/");
 
-            var putTask = client.PutAsJsonAsync<ApiSale>("api/Sale/" + sale.CustomerId, sale);
+            var putTask = client.PutAsJsonAsync<ApiSale>("api/Sale/" + sale.SaleId, sale);
             putTask.Wait();
             var result = putTask.Result;
             if (result.IsSuccessStatusCode)

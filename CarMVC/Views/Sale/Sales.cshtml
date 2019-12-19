@@ -10,67 +10,7 @@
             @Html.ActionLink("Create New", "Create")
         </p>
 
-        @*
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.SaleId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CarId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SalesPersonId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SaleDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SaleTotal)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SaleQuantity)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SaleId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CarId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SalesPersonId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SaleDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SaleTotal)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SaleQuantity)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.SaleId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.SaleId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.SaleId })
-                    </td>
-                </tr>
-            }
-
-        </table>
-        *@
+        
 
         @foreach (var item in Model)
         {
@@ -88,7 +28,7 @@
 
                     <p class="card-text">Quantity: @Html.DisplayFor(modelItem => item.SaleQuantity)</p>
 
-                    <p class="card-text">Total: @Html.DisplayFor(modelItem => item.SaleTotal)</p>
+                    <p class="card-text">Total: $@Html.DisplayFor(modelItem => item.SaleTotal)</p>
 
                     <p class="card-text">
                         @Html.ActionLink("Edit", "Edit", new { id = item.SaleId }) |

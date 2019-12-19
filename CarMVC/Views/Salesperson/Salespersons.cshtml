@@ -9,59 +9,7 @@
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.SalespersonId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SalespersonFirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SalespersonLastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SalespersonAddress)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SalespersonPhoneNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LocationId)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SalespersonId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SalespersonFirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SalespersonLastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SalespersonAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SalespersonPhoneNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LocationId)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.SalespersonId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.SalespersonId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.SalespersonId })
-                    </td>
-                </tr>
-            }
-
-        </table>
+        
         @foreach (var item in Model)
         {
             <div class="card border- mb-3" style="max-width: 40rem; border-style: solid; border-width: 3px;background-image: linear-gradient(-50deg,#9c8c72,#b3a898,#ccc1ad,#d4cec5);">
